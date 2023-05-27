@@ -39,7 +39,7 @@ const PaymentDialog: FC<{
 
   if (networkConfiguration === "mainnet-beta") {
     rpc =
-      "https://rpc.helius.xyz/?api-key=3d8fb48e-0b61-4c3f-8a30-594bb0b8b4d3";
+      "https://rpc.helius.xyz/?api-key=f7386ed9-a208-41e6-95f5-454599b081ee";
   }
 
   const connection = new Connection(rpc, "confirmed");
@@ -98,7 +98,6 @@ const PaymentDialog: FC<{
       let transactionId = "";
 
       try {
-
         const balanceOfUSDC = await getBalance(
           connection,
           publicKey,

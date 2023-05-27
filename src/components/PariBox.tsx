@@ -52,7 +52,6 @@ const TimeInterval = [
 ];
 
 export const PariBox: FC<{ time: string }> = (props) => {
-
   const { time } = props;
   const selectedTime = TimeInterval.filter((data) => data.interval === time);
   const timeSeconds = selectedTime[0].seconds;
@@ -64,7 +63,7 @@ export const PariBox: FC<{ time: string }> = (props) => {
 
   if (networkConfiguration === "mainnet-beta") {
     rpc =
-      "https://rpc.helius.xyz/?api-key=3d8fb48e-0b61-4c3f-8a30-594bb0b8b4d3";
+      "https://rpc.helius.xyz/?api-key=f7386ed9-a208-41e6-95f5-454599b081ee";
   }
 
   const connection = new Connection(rpc, "confirmed");
@@ -98,10 +97,10 @@ export const PariBox: FC<{ time: string }> = (props) => {
         if (pari_markets.length > 0) {
           let longPool: any =
             pari_markets[0].info.parimutuel.activeLongPositions.toNumber() /
-            1_000_000_000;
+            1e6;
           let shortPool: any =
             pari_markets[0].info.parimutuel.activeShortPositions.toNumber() /
-            1_000_000_000;
+            1e6;
 
           const longOdds = calculateNetOdd(
             longPool,
